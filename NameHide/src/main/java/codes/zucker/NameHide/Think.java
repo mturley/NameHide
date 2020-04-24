@@ -37,9 +37,8 @@ public class Think implements Runnable {
     public void run() {
         t.setOption(Option.NAME_TAG_VISIBILITY, OptionStatus.NEVER);
         for(Player p : Bukkit.getServer().getOnlinePlayers()) {
-            String name = p.getDisplayName();
 
-            t.addEntry(p.getDisplayName());
+            t.addEntry(p.getName());
             p.setScoreboard(board);
     
             List<Player> visiblePlayers = new ArrayList<Player>();
@@ -75,7 +74,7 @@ public class Think implements Runnable {
                 if (id == null) {
                     EntityArmorStand stand = new EntityArmorStand(((CraftWorld)p.getWorld()).getHandle().getMinecraftWorld(), pos.getX(), pos.getY() + offset, pos.getZ());
                     stand.setInvisible(true);
-                    stand.setCustomName(ChatSerializer.a("{\"text\": \"" + pl.getDisplayName() + "\"}"));
+                    stand.setCustomName(ChatSerializer.a("{\"text\": \"" + pl.getName() + "\"}"));
                     stand.setCustomNameVisible(true);
                     stand.setMarker(true);
     
